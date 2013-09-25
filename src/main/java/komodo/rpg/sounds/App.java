@@ -1,4 +1,4 @@
-package foo;
+package komodo.rpg.sounds;
 
 /**
  * Hello world!

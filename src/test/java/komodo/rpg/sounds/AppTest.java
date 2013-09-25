@@ -1,4 +1,4 @@
-package foo;
+package komodo.rpg.sounds;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
