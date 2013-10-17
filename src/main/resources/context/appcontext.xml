@@ -3,9 +3,16 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="MainFrame" class="com.rpgsounds.rpgsounds.RPGSound">
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="locale" />
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="cacheSeconds" value="60"/>
+	</bean>
+
+	<bean id="MainFrame" class="komodo.rpg.sounds.RPGSound">
 		<property name="visible"><value>true</value></property>
-		<property name="title"><value>RPG Sound</value></property>
+		<property name="title" value="" />
 	</bean>
 
 </beans>

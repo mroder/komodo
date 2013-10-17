@@ -1,4 +1,4 @@
-package com.rpgsounds.rpgsounds;
+package komodo.rpg.sounds;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

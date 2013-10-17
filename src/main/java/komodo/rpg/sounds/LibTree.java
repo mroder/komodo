@@ -1,4 +1,4 @@
-package com.rpgsounds.rpgsounds;
+package komodo.rpg.sounds;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
