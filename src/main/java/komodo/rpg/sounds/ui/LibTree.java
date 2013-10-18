@@ -19,11 +19,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import komodo.rpg.sounds.SoundClip;
 
 public class LibTree extends JPanel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8389735641162835378L;
-	
 	private File basedir = new File(getClass().getClassLoader().getResource("./lib").getFile());
 
 	public LibTree() {
@@ -37,6 +32,7 @@ public class LibTree extends JPanel {
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) e
 						.getPath().getLastPathComponent();
 				System.out.println("You selected : "+node);
+				System.out.println("You selected : " + e.getPath());
 			}
 		});
 

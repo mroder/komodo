@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
@@ -18,11 +19,8 @@ import org.springframework.context.MessageSource;
 
 public class RPGSound extends JFrame implements InitializingBean {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3474677628159223869L;
 	private LibTree treeNav;
+	private JMenuBar menuBar;
 	
 	@Setter
 	private MessageSource messages;
@@ -32,6 +30,9 @@ public class RPGSound extends JFrame implements InitializingBean {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JSplitPane splitPane = new JSplitPane();
+		
+//		initMenu();
+		
 		
 		treeNav = new LibTree();
 		splitPane.setAutoscrolls(true);
