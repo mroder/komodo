@@ -19,7 +19,7 @@ import org.springframework.context.MessageSource;
 
 public class RPGSound extends JFrame implements InitializingBean {
 	
-	private LibTree treeNav;
+	private LibTreePanel treePanel;
 	private JMenuBar menuBar;
 	
 	@Setter
@@ -34,9 +34,10 @@ public class RPGSound extends JFrame implements InitializingBean {
 //		initMenu();
 		
 		
-		treeNav = new LibTree();
+		treePanel = new LibTreePanel();
 		splitPane.setAutoscrolls(true);
-		splitPane.add(new LibTreePanel(), JSplitPane.LEFT);
+		splitPane.setOneTouchExpandable(true);
+		splitPane.add(treePanel, JSplitPane.LEFT);
 		splitPane.add(new JPanel(),JSplitPane.RIGHT);
 		getContentPane().add(splitPane);
 		
