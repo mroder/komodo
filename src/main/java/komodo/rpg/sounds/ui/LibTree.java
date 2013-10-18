@@ -1,4 +1,4 @@
-package komodo.rpg.sounds;
+package komodo.rpg.sounds.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,6 +15,8 @@ import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
+
+import komodo.rpg.sounds.SoundClip;
 
 public class LibTree extends JPanel {
 	/**

@@ -1,16 +1,19 @@
 package komodo.rpg.sounds;
 
-import java.io.File;
-import java.util.ResourceBundle;
+import java.awt.BorderLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
+import komodo.rpg.sounds.ui.LibTree;
+import komodo.rpg.sounds.ui.LibTreePanel;
+import lombok.Setter;
+
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.MessageSource;
-
-import lombok.Setter;
 
 
 public class RPGSound extends JFrame implements InitializingBean {
@@ -32,9 +35,15 @@ public class RPGSound extends JFrame implements InitializingBean {
 		
 		treeNav = new LibTree();
 		splitPane.setAutoscrolls(true);
-		splitPane.add(treeNav, JSplitPane.LEFT);
+		splitPane.add(new LibTreePanel(), JSplitPane.LEFT);
 		splitPane.add(new JPanel(),JSplitPane.RIGHT);
 		getContentPane().add(splitPane);
+		
+		JPanel statusBar = new JPanel();
+		statusBar.setLayout(new BoxLayout(statusBar, BoxLayout.LINE_AXIS));
+		statusBar.add(new JLabel("Statusbar"));
+		
+		getContentPane().add(statusBar,BorderLayout.SOUTH);
 		
 		setVisible(true);
 	}
