@@ -1,28 +1,36 @@
 package komodo.rpg.sounds;
 
 import java.io.File;
+import java.util.ResourceBundle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
-public class RPGSound extends JFrame {
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.MessageSource;
+
+import lombok.Setter;
+
+
+public class RPGSound extends JFrame implements InitializingBean {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3474677628159223869L;
-	private LibTree treeNav; 
+	private LibTree treeNav;
 	
-	public RPGSound() {
+	@Setter
+	private MessageSource messages;
+	
+	public void init() {
 		setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JSplitPane splitPane = new JSplitPane();
 		
-		ClassLoader classLoader = getClass().getClassLoader();
-		File file = new File(classLoader.getResource("./lib").getFile());
-		treeNav = new LibTree(file);
+		treeNav = new LibTree();
 		splitPane.setAutoscrolls(true);
 		splitPane.add(treeNav, JSplitPane.LEFT);
 		splitPane.add(new JPanel(),JSplitPane.RIGHT);
@@ -30,10 +38,10 @@ public class RPGSound extends JFrame {
 		
 		setVisible(true);
 	}
-	
-	
-	
-	public static void main(String[] args) {
-		new RPGSound();
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println(messages.toString());
+		
 	}
 }

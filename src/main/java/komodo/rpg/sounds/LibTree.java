@@ -21,11 +21,13 @@ public class LibTree extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = -8389735641162835378L;
+	
+	private File basedir = new File(getClass().getClassLoader().getResource("./lib").getFile());
 
-	public LibTree(File dir) {
+	public LibTree() {
 		setLayout(new BorderLayout());
-		
-		JTree tree = new JTree(addNodes(null, dir));
+		System.out.println(basedir);
+		JTree tree = new JTree(addNodes(null, basedir));
 		
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
 			
@@ -89,5 +91,9 @@ public class LibTree extends JPanel {
 			curDir.add(new DefaultMutableTreeNode(files.elementAt(fnum)));
 		}
 		return curDir;
+	}
+	
+	public static void main(String[] args) {
+		new LibTree();
 	}
 }
