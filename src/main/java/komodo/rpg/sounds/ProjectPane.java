@@ -24,7 +24,7 @@ public class ProjectPane extends JPanel {
 		tabPane.addTab("Test 2", new JLabel("Second Tab"));
 		JPanel i = new JPanel();
 		i.setOpaque(false);
-		i.setLayout(new FlowLayout());
+//		i.setLayout(new FlowLayout());
 		i.add(new ClipPlayerPanel(null));
 		i.add(new ClipPlayerPanel(null));
 		i.add(new ClipPlayerPanel(null));

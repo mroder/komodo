@@ -30,13 +30,7 @@ public class ClipPlayerPanel extends JPanel {
 		this.soundClip = sound_Clip;
 		setBorder(BorderFactory.createLoweredBevelBorder());
 		
-		try {
-			BufferedImage img = ImageIO.read(getClass().getResource("/imgs/a2pVM.jpg"));
-			add(new JLabel(new ImageIcon(img)));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		add(new JLabel(new ImageIcon(getClass().getResource("/imgs/a2pVM.jpg"))));
 		
 		add(new JLabel("Soundclip1..."));
 		
