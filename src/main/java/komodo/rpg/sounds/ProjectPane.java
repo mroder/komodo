@@ -1,10 +1,12 @@
 package komodo.rpg.sounds;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.JTabbedPane;
 
 import komodo.rpg.sounds.ui.ClipPlayerPanel;
