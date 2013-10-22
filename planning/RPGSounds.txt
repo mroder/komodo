@@ -1,0 +1,45 @@
+Programmierung für WIN und MAC
+
+Menü
+ Datei
+  Neue Szene
+  Neue Playlist
+  Szene laden
+  Szene speichern
+  Szene im neuen Tab laden
+  Playlist laden
+  Playlist speichern
+  Playlist im neuen Tab laden
+  Audio-Dateien importieren (MP3 von Festplatte direkt reinziehen?)
+ Bearbeiten
+  Rückgängig
+  Vorwärts
+  Effekte Tastenkürzel ändern
+ Einstellungen
+  Audio-Einstellungen
+  ...
+
+Vorgefertigte Szenen erstellen
+Szenen-Favouriten (unten links)
+
+Kategoriebäume
+ Weit gefächert, angefangen bei den unterschiedlichen Spielen (DSA, Shadowrun, etc.)
+ Ein Ordner für "Eigene Sounds"
+
+Audiofunktionen
+ Audio visualisieren (WaveForm) oder Kategoriebild (z.B. Wald)
+ Szenen
+  Play/Play-ALL
+   Instant-Play
+   FadeIn-Play
+  Stop/Stop-ALL
+   Instant-Stop
+   FadeOut-Stop
+  Pause-ALL
+   Nur die pausieren, die aktiv waren (AN/AUS)
+  Hall
+ Effekte
+  Effekte mit mehreren Audiofiles im Random, mit X Plays per 5/10/30/60 Minutes
+  OneShot-Play
+  PAN-Regler
+  Tastenkürzel
