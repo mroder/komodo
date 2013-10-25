@@ -1,10 +1,7 @@
 package komodo.rpg.sounds.ui;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,7 +27,8 @@ public class ClipPlayerPanel extends JPanel {
 		this.soundClip = sound_Clip;
 		setBorder(BorderFactory.createLoweredBevelBorder());
 		
-		add(new JLabel(new ImageIcon(getClass().getResource("/imgs/a2pVM.jpg"))));
+//		ImageIcon icon =new ImageIcon(getClass().getResource("/imgs/a2pVM.jpg")); 
+//		add(new JLabel(icon));
 		
 		add(new JLabel("Soundclip1..."));
 		
