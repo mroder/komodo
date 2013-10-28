@@ -23,7 +23,7 @@ public class LibTree extends JPanel {
 
 	public LibTree() {
 		setLayout(new BorderLayout());
-		System.out.println(basedir);
+//		System.out.println(basedir);
 		JTree tree = new JTree(addNodes(null, basedir));
 		
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
@@ -31,11 +31,10 @@ public class LibTree extends JPanel {
 			public void valueChanged(TreeSelectionEvent e) {
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) e
 						.getPath().getLastPathComponent();
-				System.out.println("You selected : "+node);
-				System.out.println("You selected : " + e.getPath());
+				
 			}
 		});
-
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.getViewport().add(tree);
 		add(scrollPane,BorderLayout.CENTER);
@@ -80,7 +79,7 @@ public class LibTree extends JPanel {
 					System.err.println("not a sound-file: " + thisObject);
 					
 				} catch (IOException e) {
-					System.err.println("not a sound-file: " + thisObject);
+					System.err.println("--- not a sound-file: " + thisObject);
 				}
 			}
 		}
