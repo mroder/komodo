@@ -15,16 +15,19 @@ import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeSelectionModel;
 
 import komodo.rpg.sounds.SoundClip;
 
-public class LibTree extends JPanel {
+public class LibTree extends JPanel implements TreeSelectionListener {
 	private File basedir = new File(getClass().getClassLoader().getResource("./lib").getFile());
 
 	public LibTree() {
 		setLayout(new BorderLayout());
 //		System.out.println(basedir);
 		JTree tree = new JTree(addNodes(null, basedir));
+		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+		tree.addTreeSelectionListener(this);
 		
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
 			
@@ -92,5 +95,11 @@ public class LibTree extends JPanel {
 	
 	public static void main(String[] args) {
 		new LibTree();
+	}
+
+	@Override
+	public void valueChanged(TreeSelectionEvent e) {
+		System.out.println(e);
+		
 	}
 }

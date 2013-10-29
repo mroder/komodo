@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -28,6 +27,7 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import komodo.rpg.sounds.ui.LibTreePanel;
+import komodo.rpg.sounds.util.Localizer;
 
 import org.springframework.beans.factory.InitializingBean;
 
@@ -38,8 +38,6 @@ public class RPGSound extends JFrame implements InitializingBean,
 	private ProjectPane projectPane;
 	private JMenuBar menuBar;
 	private JSplitPane splitPane;
-	private ResourceBundle bundle;
-
 	private JToolBar toolBar;
 
 	public void init() {
@@ -49,17 +47,10 @@ public class RPGSound extends JFrame implements InitializingBean,
 		
 		
 		String baseName = "locale";
-	    try
-	    {
-	      bundle =   ResourceBundle.getBundle  ( baseName );
-	      setTitle(bundle.getString("app.name"));
-	    }
-	    catch ( MissingResourceException e ) {
-	      System.err.println( e );
-	    }
+        setTitle(Localizer.getString("app.name"));
 		
 		setMinimumSize(new Dimension(800,600));
-		JSplitPane splitPane = new JSplitPane();
+		splitPane = new JSplitPane();
 
 		initMenu();
 		initToolbar();
@@ -90,13 +81,13 @@ public class RPGSound extends JFrame implements InitializingBean,
 		toolBar.add(global_player);
 
 		global_player.add(new JButton(new ImageIcon(getClass().getResource(
-				"/imgs/icon_play.png"))));
+				Localizer.getString("app.icon.play")))));
 		global_player.add(new JButton(new ImageIcon(getClass().getResource(
-				"/imgs/icon_pause.png"))));
+				Localizer.getString("app.icon.pause")))));
 		global_player.add(new JButton(new ImageIcon(getClass().getResource(
-				"/imgs/icon_stop.png"))));
-		global_player.add(new JCheckBox("Fade in"));
-		global_player.add(new JCheckBox("Fade out"));
+				Localizer.getString("app.icon.stop")))));
+		global_player.add(new JCheckBox(Localizer.getString("app.txt.fadeIn")));
+		global_player.add(new JCheckBox(Localizer.getString("app.txt.fadeOut")));
 
 	}
 
@@ -104,34 +95,34 @@ public class RPGSound extends JFrame implements InitializingBean,
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		JMenu menu1 = new JMenu("Datei");
-		JMenu menu2 = new JMenu("Bearbeiten");
+		JMenu menu1 = new JMenu(Localizer.getString("app.menu.file"));
+		JMenu menu2 = new JMenu(Localizer.getString("app.menu.edit"));
 		menuBar.add(menu1);
-//		menuBar.add(menu2)
+		menuBar.add(menu2);
 
-		JMenuItem new_scene = new JMenuItem("Neue Szene", KeyEvent.VK_N);
+		JMenuItem new_scene = new JMenuItem(Localizer.getString("app.menuitem.newscene.txt"), KeyEvent.VK_N);
 		new_scene.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK));
-		new_scene.setActionCommand("newscene");
+		new_scene.setActionCommand(Localizer.getString("app.menuitem.newscene.cmd"));
 		new_scene.addActionListener(this);
 		
-		JMenuItem load_szene = new JMenuItem("Szene laden...", KeyEvent.VK_O);
+		JMenuItem load_szene = new JMenuItem(Localizer.getString("app.menuitem.loadscene.txt"), KeyEvent.VK_O);
 		load_szene.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK));
-		load_szene.setEnabled(false); // TODO: implementation missing
-		load_szene.setActionCommand("loadscene");
+//		load_szene.setEnabled(false); // TODO: implementation missing
+		load_szene.setActionCommand(Localizer.getString("app.menuitem.loadscene.cmd"));
 		load_szene.addActionListener(this);
 		
-		JMenuItem save_szene = new JMenuItem("Szene speichern");
+		JMenuItem save_szene = new JMenuItem(Localizer.getString("app.menuitem.savescene.txt"));
 		save_szene.setEnabled(false); // TODO: implementation missing
-		save_szene.setActionCommand("savescene");
+		save_szene.setActionCommand(Localizer.getString("app.menuitem.savescene.cmd"));
 		save_szene.addActionListener(this);
 		
-		JMenuItem save_szene_as = new JMenuItem("Szene speichern unter...");
+		JMenuItem save_szene_as = new JMenuItem(Localizer.getString("app.menuitem.savesceneas.txt"));
 		save_szene_as.setEnabled(false); // TODO: implementation missing
-		save_szene_as.setActionCommand("saveSceneAs");
+		save_szene_as.setActionCommand(Localizer.getString("app.menuitem.savesceneas.cmd"));
 		save_szene_as.addActionListener(this);
 
-		JMenuItem exit = new JMenuItem("Beenden");
-		exit.setActionCommand("appclose");
+		JMenuItem exit = new JMenuItem(Localizer.getString("app.menuitem.exit.txt"));
+		exit.setActionCommand(Localizer.getString("app.menuitem.exit.cmd"));
 		exit.addActionListener(this);
 
 		menu1.add(new_scene);
@@ -160,10 +151,10 @@ public class RPGSound extends JFrame implements InitializingBean,
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		System.out.println(arg0);
+	public void actionPerformed(ActionEvent event) {
+		System.out.println(event);
 		
-		if (arg0.getActionCommand().equals("newscene")) {
+		if (event.getActionCommand().equals(Localizer.getString("app.menuitem.newscene.cmd"))) {
 			String proj_name = JOptionPane.showInputDialog(this.getContentPane(),
 					"Please provide a scene name:",
 					"Create new Szene",
@@ -172,8 +163,8 @@ public class RPGSound extends JFrame implements InitializingBean,
 				projectPane.addScene(proj_name);
 			}
 		}
-		else if (arg0.getActionCommand().equals("loadscene")) {
-			System.out.println("In loading scene");
+		else if (event.getActionCommand().equals(Localizer.getString("app.menuitem.loadscene.cmd"))) {
+			JOptionPane.showInternalMessageDialog(getContentPane(), "Not yet implemented"); // TODO
 		}
 	}
 

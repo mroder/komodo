@@ -22,7 +22,7 @@ public class WaveFormPanelContainer extends JPanel {
 		audioInfo = new AudioInfo(audioInputStream);
 		
 		for (int i = 0; i < audioInfo.getNumberOfChannels(); i++) {
-			SingleWaveformPanel waveFormPanel = new SingleWaveformPanel(audioInfo, i);
+			SingleWaveformPanel waveFormPanel = new SingleWaveformPanel(audioInfo);
 			singleChannelWaveformPanels.add(waveFormPanel);
 			add(createChannelDisplay(waveFormPanel,i));
 		}

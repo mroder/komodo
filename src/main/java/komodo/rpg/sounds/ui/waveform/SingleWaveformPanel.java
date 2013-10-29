@@ -16,11 +16,11 @@ public class SingleWaveformPanel extends JPanel {
 
 
     private AudioInfo helper;
-    private int channelIndex;
 
-    public SingleWaveformPanel(AudioInfo helper, int channelIndex) {
+    public SingleWaveformPanel(AudioInfo helper) {
         this.helper = helper;
-        this.channelIndex = channelIndex;
+        setMinimumSize(new Dimension(200,40));
+        setPreferredSize(new Dimension(200,40));
         setBackground(BACKGROUND_COLOR);
     }
 
@@ -31,7 +31,7 @@ public class SingleWaveformPanel extends JPanel {
         g.setColor(REFERENCE_LINE_COLOR);
         g.drawLine(0, lineHeight, (int)getWidth(), lineHeight);
 
-        drawWaveform(g, helper.getAudio(channelIndex));
+        drawWaveform(g, helper.getAudio(1));
 
     }
 
