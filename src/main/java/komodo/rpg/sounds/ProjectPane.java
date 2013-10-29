@@ -30,12 +30,13 @@ public class ProjectPane extends JPanel implements ChangeListener {
 		Scene scene = new Scene();
 		scene.setTitle(title);
 		sceneList.add(scene);
-		tabPane.addTab(title, null, new ScenePanel(), title   );
+		tabPane.addTab(title + " *", null, new ScenePanel(), title   );
 		tabPane.setSelectedIndex(tabPane.getTabCount() - 1);
 	}
 
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		// TODO: maybe needed
+		System.out.println(e);
 	}
 }

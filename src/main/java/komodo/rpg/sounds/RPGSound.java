@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
@@ -19,8 +21,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JSplitPane;
 import javax.swing.JToolBar;
+import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import komodo.rpg.sounds.ui.LibTreePanel;
@@ -101,28 +105,45 @@ public class RPGSound extends JFrame implements InitializingBean,
 		setJMenuBar(menuBar);
 
 		JMenu menu1 = new JMenu("Datei");
+		JMenu menu2 = new JMenu("Bearbeiten");
 		menuBar.add(menu1);
+//		menuBar.add(menu2)
 
-		JMenuItem new_scene = new JMenuItem("Neue Szene");
+		JMenuItem new_scene = new JMenuItem("Neue Szene", KeyEvent.VK_N);
+		new_scene.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK));
 		new_scene.setActionCommand("newscene");
 		new_scene.addActionListener(this);
+		
+		JMenuItem load_szene = new JMenuItem("Szene laden...", KeyEvent.VK_O);
+		load_szene.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, KeyEvent.CTRL_MASK));
+		load_szene.setEnabled(false); // TODO: implementation missing
+		load_szene.setActionCommand("loadscene");
+		load_szene.addActionListener(this);
+		
+		JMenuItem save_szene = new JMenuItem("Szene speichern");
+		save_szene.setEnabled(false); // TODO: implementation missing
+		save_szene.setActionCommand("savescene");
+		save_szene.addActionListener(this);
+		
+		JMenuItem save_szene_as = new JMenuItem("Szene speichern unter...");
+		save_szene_as.setEnabled(false); // TODO: implementation missing
+		save_szene_as.setActionCommand("saveSceneAs");
+		save_szene_as.addActionListener(this);
+
+		JMenuItem exit = new JMenuItem("Beenden");
+		exit.setActionCommand("appclose");
+		exit.addActionListener(this);
 
 		menu1.add(new_scene);
+		menu1.add(load_szene);
+		menu1.add(save_szene);
+		menu1.add(save_szene_as);
+		menu1.add(new JSeparator());
+		menu1.add(exit);
+		
+		
 
 	}
-
-//	private void createSplitPane() {
-//		splitPane = new JSplitPane();
-//		treePanel = new LibTreePanel();
-//		splitPane.setAutoscrolls(true);
-//		splitPane.setOneTouchExpandable(true);
-////		splitPane.set
-//		splitPane.add(treePanel, JSplitPane.LEFT);
-//		splitPane.add(new JPanel(),JSplitPane.RIGHT);
-//		getContentPane().add(splitPane);
-//		
-//	}
-
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -140,6 +161,8 @@ public class RPGSound extends JFrame implements InitializingBean,
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		System.out.println(arg0);
+		
 		if (arg0.getActionCommand().equals("newscene")) {
 			String proj_name = JOptionPane.showInputDialog(this.getContentPane(),
 					"Please provide a scene name:",
@@ -149,5 +172,9 @@ public class RPGSound extends JFrame implements InitializingBean,
 				projectPane.addScene(proj_name);
 			}
 		}
+		else if (arg0.getActionCommand().equals("loadscene")) {
+			System.out.println("In loading scene");
+		}
 	}
+
 }
