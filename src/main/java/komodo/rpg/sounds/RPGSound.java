@@ -62,6 +62,7 @@ public class RPGSound extends JFrame implements InitializingBean,
 		projectPane = new ProjectPane();
 		splitPane.add(projectPane, JSplitPane.RIGHT);
 		getContentPane().add(splitPane);
+		treePanel.getLibTree().setProjectPane(projectPane);
 
 		JPanel statusBar = new JPanel();
 		statusBar.setLayout(new BoxLayout(statusBar, BoxLayout.LINE_AXIS));

@@ -10,9 +10,11 @@ import javax.swing.event.ChangeListener;
 
 import komodo.rpg.sounds.model.Scene;
 import komodo.rpg.sounds.ui.ScenePanel;
+import lombok.Getter;
 
 public class ProjectPane extends JPanel implements ChangeListener {
 
+	@Getter
 	private JTabbedPane tabPane;
 	private ArrayList<Scene> sceneList;
 	

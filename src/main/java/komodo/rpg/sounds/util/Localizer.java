@@ -24,7 +24,7 @@ public class Localizer {
 			init();
 		}
 		
-		String s = "<undefined>";
+		String s = "<undefined "+key + ">";
 		try {
 			s = bundle.getString(key);
 		}

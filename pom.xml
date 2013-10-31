@@ -72,7 +72,11 @@
 		</dependency>
 	</dependencies>
 
-	<build>
+	<build><resources>
+        <resource>
+            <directory>src/main/resources</directory>
+        </resource>
+    </resources>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -85,7 +89,9 @@
 							<name>app</name>
 						</program>
 					</programs>
+					<repositoryLayout>flat</repositoryLayout>
 				</configuration>
+				
 			</plugin>
 		</plugins>
 	</build>

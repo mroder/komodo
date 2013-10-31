@@ -3,6 +3,7 @@ package komodo.rpg.sounds.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,7 +47,7 @@ public class ClipPlayerPanel extends JPanel {
 		setAutoscrolls(true);
 		setBackground(Color.GREEN);
 		
-		JPanel content = new JPanel();
+		JPanel content = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
 		AudioInputStream audioInputStream;
 		AudioInfo info = null;

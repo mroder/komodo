@@ -8,8 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import lombok.Getter;
+
 public class ScenePanel extends JPanel {
 
+	@Getter
 	JPanel listContainer;
 	
 	public ScenePanel() {
