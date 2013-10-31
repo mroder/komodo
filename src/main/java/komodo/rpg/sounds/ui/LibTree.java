@@ -84,6 +84,7 @@ public class LibTree extends JPanel implements TreeSelectionListener {
 				} catch (IOException e) {
 					System.err.println("--- not a sound-file: " + thisObject);
 				}
+				
 			}
 		}
 		

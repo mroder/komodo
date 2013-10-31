@@ -14,7 +14,7 @@ public class Test {
 	public static void main(final String[] args) throws Exception {
 		AudioInputStream in = null;
 
-		final String PATH = Test.class.getResource("/lib/ActionButton/Monster01/mp3/Monster.01.02.mp3").getFile();
+		final String PATH = Test.class.getResource("/lib/ActionButton/Monster01/mp3/Monster.01.03.mp3").getFile();
 
 		try {
 			File f = new File(PATH);
@@ -42,13 +42,14 @@ public class Test {
 			System.out.println(min + ":" + sec + "." + milli);
 			
 			SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info);
+			long start = System.currentTimeMillis();
 			line.open();
 			line.start();
-			long start = System.currentTimeMillis();
 			stream(getAudioInputStream(outFormat, in), line);
-			System.out.println((System.currentTimeMillis() - start) / 1000d);
 			line.drain();
 			line.stop();
+			System.out.println((System.currentTimeMillis() - start) / 1000d);
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
